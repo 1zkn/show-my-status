@@ -11,7 +11,7 @@ $secureCheck = false;
 if(isset($_GET['psw']) && !empty($_GET['psw'])){
     
     $secureCheck = ($_GET['psw'] == $allowMethod['psw'] ? true : false);
-    echo var_dump($secureCheck);
+    
 }
 
  if(isset($_GET['status']) && !empty($_GET['status']) && $secureCheck) {
