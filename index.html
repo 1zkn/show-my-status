@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin的状态</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-200">
+    <div class="flex items-center justify-center min-h-screen py-8">
+        <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-semibold">Kevin现在：</h2>
+                <div id="status-led" class="w-4 h-4 rounded-full bg-gray-500 ring-2 ring-gray-500"></div>
+            </div>
+            <p id="status-text" class="text-gray-600 mb-2">状态不可用</p>
+            <p class="text-sm mb-4">最新状态更新：<span id="last-update" class="text-slate-400">--:--:--</span> </p>
+            <p class="text-sm mb-4">更新时间：<span id="time" class="text-slate-400">--:--:--</span> </p>
+
+            <!-- 个性化消息 -->
+            <div id="custom-message" class="mt-4 bg-yellow-100 p-3 rounded-lg">
+                <p class="text-yellow-800 italic">"messagge."</p>
+            </div>
+
+            
+            <!-- 替代联系方式 -->
+            <div class="mt-6">
+              <h3 class="font-semibold mb-2">其他联系方式：</h3>
+              <ul class="space-y-2">
+                  <li>
+                      <a href="mailto:kevin@zkn.app" class="text-blue-600 hover:underline">电子邮件：kevin(at)zkn.app</a>
+                  </li>
+                  <li>
+                      <p class="text-blue-600 hover:underline">QQ: </a>
+                  </li>
+              </ul>
+          </div>
+
+            <!-- 预计下次在线时间 -->
+            <div class="mt-6 bg-green-100 p-3 rounded-lg hidden">
+                <p class="text-green-800"><strong>预计下次在线时间：</strong> 明天 09:00</p>
+            </div>
+
+            <!-- 状态说明 -->
+            <div class="mt-6 bg-gray-100 p-4 rounded-lg">
+                <h3 class="font-semibold mb-2">状态说明：</h3>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><span class="font-medium">在线（绿色）：</span>可以立即回应。</li>
+                    <li><span class="font-medium">忙碌（橙色）：</span>正在工作，可能会延迟回应。</li>
+                    <li><span class="font-medium">离线（红色）：</span>目前不在线。</li>
+                </ul>
+            </div>
+
+            <!-- 最近状态历史 -->
+            <div class="mt-6 hidden">
+                <h3 class="font-semibold mb-2">最近状态：</h3>
+                <ul class="space-y-2">
+                    <li class="flex justify-between items-center">
+                        <span class="text-green-600">在线</span>
+                        <span class="text-sm text-gray-500">今天，00:00</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span class="text-orange-600">忙碌</span>
+                        <span class="text-sm text-gray-500">今天，00:00</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span class="text-red-600">离线</span>
+                        <span class="text-sm text-gray-500">昨天，00:00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 社交媒体链接 -->
+            <div class="mt-6 hidden">
+                <h3 class="font-semibold mb-2 hidden">在社交媒体上关注我：</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-blue-500 hover:text-blue-600">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+                    </a>
+                    <a href="#" class="text-blue-700 hover:text-blue-800">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path></svg>
+                    </a>
+                    <a href="#" class="text-pink-600 hover:text-pink-700">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 时区 -->
+            <!-- 时区 -->
+        <div class="mt-6 text-sm text-gray-600">
+            <p>所有时间均为您浏览器的本地时间。显示的时间可能不同。</p>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        const getStatus = () => {
+            fetch("/get.php")
+            .then(response => {
+                if(!response.ok){
+                    throw new Error('Api响应错误');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data)
+                const customMex = document.getElementById('custom-message')
+                if(data.message == null){
+                  customMex.className = "hidden"
+                }else{
+                  customMex.querySelector('p').textContent = data.message
+                }
+
+
+                const status_led = document.getElementById('status-led')
+                const status_text = document.getElementById('status-text')
+                if(data.status == -1){
+                    //offline
+                    status_led.className = "w-4 h-4 rounded-full bg-red-500 ring-2 ring-red-500"
+                    status_text.textContent = "目前已离线。 :("
+                } else if(data.status == 1){
+                    //online
+                    status_led.className = "w-4 h-4 rounded-full bg-green-500 ring-2 ring-green-500"
+                    status_text.textContent = "目前在线。"
+                } else if(data.status == 2){
+                    //busy
+                    status_led.className = "w-4 h-4 rounded-full bg-orange-500 ring-2 ring-orange-500"
+                    status_text.textContent = "目前正忙。暂时无法联系。"
+                } else {
+                    //error?
+                    status_led.className = "w-4 h-4 rounded-full bg-gray-500 ring-2 ring-gray-500"
+                    status_text.textContent = "哎呀。出了点问题。"
+                }
+                const lastUpdateTimeBox = document.getElementById('last-update')
+                let lastUpdateTime = new Date(data.time * 1000).toLocaleString();
+                lastUpdateTimeBox.textContent = lastUpdateTime
+                const timeUpdateAlert = document.getElementById('time')
+                let currentDate = new Date()
+                timeUpdateAlert.textContent = currentDate.toLocaleTimeString()
+            })
+        }
+    
+        getStatus()
+        setInterval(getStatus, 30000)
+        </script>
+</body>
+</html>
